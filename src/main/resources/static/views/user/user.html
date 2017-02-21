@@ -1,0 +1,88 @@
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Users</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <h4>{{message}}</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name of user:</label>
+                        <input type="text" class="form-control" id="name" ng-model="nameOfUser">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" ng-model="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" class="form-control" id="confirmPassword" ng-model="confirmPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" ng-model="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" ng-model="lastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Groups:</label>
+                        <div ng-dropdown-multiselect="" options="groups" selected-model="selectedGroupsModel" extra-settings="groupsSettings"></div>
+
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click="addUser()">Add</button>
+                </form>
+                <br/>
+
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <!--<label for="name">Date of birth:</label>-->
+                        <!--<input type="date" class="form-control" id="dateOfBirth" ng-model="dateOfBirth">-->
+                        <label for="name">Date of birth:</label>
+                        <div>
+                            <div style="display:inline-block; min-height:290px;">
+                                <div uib-datepicker ng-model="dtOfBirth" class="well well-sm" datepicker-options="options"></div>
+                            </div>
+                            <pre>Selected date is: {{dtOfBirth | date:'fullDate' }}</pre>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br/>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of birth</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="u in users">
+                    <td>
+                        {{u.id}}
+                    </td>
+                    <td>{{u.name}}</td>
+                    <td>{{u.firstName}}</td>
+                    <td>{{u.lastName}}</td>
+                    <td>{{u.dateOfBirth}}</td>
+                    <td>
+                        <a ng-href="index.html#/users/edit/{{u.id}}" class="btn btn-info"
+                           role="button">Edit</a>
+                        <a ng-href="" class="btn btn-info"
+                           role="button" ng-click="deleteUser(u.id)">Remove</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="col-md-2"></div>

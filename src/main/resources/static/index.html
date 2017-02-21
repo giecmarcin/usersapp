@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="usersApp">
+<head>
+    <!--Features For IE-->
+    <meta http-equiv="Cache-Control" content="no-cache">
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <style>
+        .full button span {
+            background-color: limegreen;
+            border-radius: 32px;
+            color: black;
+        }
+        .partially button span {
+            background-color: orange;
+            border-radius: 32px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home">UsersApp</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home"><i class="fa fa-shield"></i>Users</a></li>
+                    <li><a href="#groups"><i class="fa fa-home"></i>Groups</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div ng-view>
+</div>
+</body>
+</html>
+
+<script type="text/javascript" src="/jQuery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+<!--<script type="text/javascript" src="/angular-1.5.9/ui-bootstrap-tpls-2.1.3.min.js"></script>-->
+
+
+<script type="text/javascript" src="/angular-1.5.9/angular.js"></script>
+<script type="text/javascript" src="/angular-1.5.9/angular-resource.js"></script>
+<script type="text/javascript" src="/angular-1.5.9/angular-route.js"></script>
+<script type="text/javascript" src="/angular-1.5.9/angularjs-dropdown-multiselect.min.js"></script>
+<script type="text/javascript" src="/angular-1.5.9/ui-bootstrap-tpls-2.5.0.js"></script>
+
+<script type="text/javascript" src="/usersApp/app.js" charset="utf-8"></script>
+<script type="text/javascript" src='/usersApp/user/UserController.js' charset="utf-8"></script>
+<script type="text/javascript" src='/usersApp/user/UserService.js' charset="utf-8"></script>
+<script type="text/javascript" src='/usersApp/user/UserEditController.js' charset="utf-8"></script>
+<script type="text/javascript" src='/usersApp/group/GroupController.js' charset="utf-8"></script>
+<script type="text/javascript" src='/usersApp/group/GroupService.js' charset="utf-8"></script>
+<script type="text/javascript" src='/usersApp/group/EditController.js' charset="utf-8"></script>
+
+
+
+
+
