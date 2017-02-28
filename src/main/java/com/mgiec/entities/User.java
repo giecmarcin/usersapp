@@ -23,12 +23,20 @@ public class User {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateOfBirth;
 
+    @Column(name = "enabled")
+    private Boolean enabled;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_authority", joinColumns = { @JoinColumn(name = "id_user", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "id_authority", table = "authority", referencedColumnName = "id") })
+    private Set<Authority> authorities = new HashSet<Authority>();
+
     @JsonBackReference
     //@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
     @ManyToMany
     private Set<Group> groups = new HashSet<>();
 
     public User() {
+        setEnabled(true);
     }
 
     public User(String name, String password, String firstName, String lastName, LocalDate dateOfBirth, Set<Group> groups) {
@@ -38,6 +46,7 @@ public class User {
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.groups = groups;
+        setEnabled(true);
     }
 
     public User(String name, String password, String firstName, String lastName, LocalDate dateOfBirth) {
@@ -46,6 +55,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        setEnabled(true);
     }
 
     public User(String name, String firstName, String lastName, LocalDate dateOfBirth) {
@@ -53,6 +63,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        setEnabled(true);
     }
 
     public Long getId() {
@@ -109,6 +120,22 @@ public class User {
 
     public void setGroups(Set<Group> groups) {
         this.groups = groups;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
     }
 
     @Override

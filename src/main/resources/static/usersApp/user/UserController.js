@@ -99,4 +99,33 @@ angular.module('usersApp').controller('UserController', function ($scope, UserSe
                 }
             })
     }
+    $scope.test = function(){
+        //Proszę kod, ja sobie wpisalem na sztywno, ale Ty będziesz bral ze slidera
+        var R=15;
+        var L=0.075;
+        var Uz=25;
+        var Tau=L/R;
+        var dt=0.002;
+        var n=35;
+        var pr = []
+
+        for(var i=0; i<n; i++){
+            pr[i] = 0;
+        }
+
+        for(var i=0; i<n; i++){
+            pr[i+1] = pr[i+1] = pr[i]+dt*(-pr[i]/Tau+Uz/L);
+        }
+        $scope.wyniki = []
+        for(var i=0; i<n; i++){
+            var zm = {
+                id:"liczba",
+                wartosc: pr[i].toFixed(4)
+            }
+            console.log(pr[i].toFixed(4));
+            $scope.wyniki.push(zm);
+        }
+
+
+    }
 });

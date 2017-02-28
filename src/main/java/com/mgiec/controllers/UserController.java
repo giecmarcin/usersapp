@@ -7,6 +7,7 @@ import com.mgiec.services.ValidationErrorBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,7 @@ public class UserController {
         }
     }
 
+    @PreAuthorize("hasAnyAuthority('admin')")
     @GetMapping("/all")
     public ResponseEntity<?> findAllUsers() {
         List<User> users = userService.findAll();

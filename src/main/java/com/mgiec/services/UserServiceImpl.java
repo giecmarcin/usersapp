@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
     public boolean edit(com.mgiec.dto.User user) {
         boolean isModified = false;
         Optional<User> optUser = findOne(user.getId());

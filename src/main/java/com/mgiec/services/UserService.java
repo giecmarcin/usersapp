@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface UserService {
     User saveWithEncryptedPassword(UserAndGroups userAndGroups);
 
+    void save(User user);
+
     boolean edit(com.mgiec.dto.User user);
 
     boolean remove(Long id);
