@@ -145,7 +145,7 @@ usersApp.run(function ($rootScope, $location, $http, AuthSharedService, Session,
     // Call when the 403 response is returned by the serverF
     $rootScope.$on('event:auth-forbidden', function (rejection) {
         $rootScope.$evalAsync(function () {
-            $location.path('/error/403').replace();
+            $location.path('/login');
         });
     });
 
