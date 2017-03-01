@@ -1,7 +1,6 @@
 package com.mgiec.security;
 
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ import org.springframework.security.web.authentication.logout.HttpStatusReturnin
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@ComponentScan(basePackages = {"com.mgiec.security"})
+//@ComponentScan(basePackages = {"com.mgiec.security"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
@@ -91,10 +90,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler())
                 .deleteCookies("JSESSIONID")
                 .permitAll()
-                .and()
-                .rememberMe()
-                //.rememberMeServices(rememberMeServices)
-                .key(REMEMBER_ME_KEY)
                 .and();
+//                .rememberMe()
+//                .rememberMeServices(rememberMeServices)
+//                .key(REMEMBER_ME_KEY)
+                //.and();
     }
 }
